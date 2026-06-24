@@ -1,0 +1,588 @@
+/* ==========================================================================
+   1. БАЗОВЫЕ СБРОСЫ И ГЛОБАЛЬНЫЕ СТИЛИ
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #0b0914; /* Глубокий премиальный темный цвет */
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   2. ГЛАВНАЯ СЕКЦИЯ (HERO) С АНИМИРОВАННЫМ ФОНОМ
+   ========================================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* Медленно двигающийся фоновый градиент */
+  background: radial-gradient(
+    circle at 10% 20%,
+    #221a52 0%,
+    #0d0b18 50%,
+    #17113a 100%
+  );
+  background-size: 200% 200%;
+  animation: backgroundMove 15s ease infinite;
+  padding: 80px 0;
+}
+
+/* Сетка контента */
+.hero-content {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Аватар с неоновым свечением */
+.hero-avatar {
+  justify-self: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.hero-photo {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #7a5cff;
+  /* Пульсирующая неоновая тень */
+  box-shadow:
+    0 0 25px rgba(122, 92, 255, 0.4),
+    inset 0 0 15px rgba(122, 92, 255, 0.2);
+  animation: glowPulse 3s ease-in-out infinite alternate;
+}
+
+/* Текстовый блок */
+.hero-info {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+/* Заголовок с градиентом текста */
+.hero-title {
+  font-size: 3.8rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ffffff 30%, #bdafef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Текстовое описание */
+.hero-description {
+  font-size: 1.25rem;
+  color: #cdcbfa;
+  margin-bottom: 40px;
+  max-width: 650px;
+  opacity: 0.9;
+}
+
+/* Элементы управления: Кнопки */
+.hero-btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  margin-right: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Основная кнопка "Связаться" */
+.hero-btn:not(.hero-btn-outline) {
+  background-color: #7a5cff;
+  color: #ffffff;
+  border: 2px solid #7a5cff;
+  box-shadow: 0 4px 15px rgba(122, 92, 255, 0.3);
+}
+
+.hero-btn:not(.hero-btn-outline):hover {
+  background-color: #6342f0;
+  border-color: #6342f0;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(122, 92, 255, 0.5);
+}
+
+/* Контурная кнопка "Смотреть работы" */
+.hero-btn-outline {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.hero-btn-outline:hover {
+  border-color: #7a5cff;
+  background-color: rgba(122, 92, 255, 0.1);
+  color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(122, 92, 255, 0.15);
+}
+
+.hero-btn:active {
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   3. СЕКЦИЯ: МОЙ СТЕК ТЕХНОЛОГИЙ (SKILLS)
+   ========================================================================== */
+.skills {
+  padding: 100px 0;
+  background-color: #0b0914;
+  position: relative;
+}
+
+/* Заголовок секций общего типа */
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #ffffff 0%, #bdafef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #7a5cff;
+  border-radius: 2px;
+  margin: 15px auto 0 auto;
+  box-shadow: 0 0 10px rgba(122, 92, 255, 0.5);
+}
+
+/* Флекс-сетка с центрированием нижнего ряда карточек */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Карточки технологий (Glassmorphism) */
+.skill-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 40px 30px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1 1 250px;
+  max-width: 280px;
+
+  /* Состояние до скролла (для JS-анимации) */
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+    background 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Класс видимости от скрипта */
+.skill-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Поочередные задержки появления карточек стека */
+.skill-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.skill-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.skill-card:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.skill-card:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.skill-card:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.skill-card:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+/* Контейнеры для иконок SVG */
+.skill-icon {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 24px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-icon svg {
+  width: 100%;
+  height: 100%;
+  max-width: 55px;
+  max-height: 55px;
+  display: block;
+  margin: auto;
+}
+
+.skill-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  font-size: 0.95rem;
+  color: #cdcbfa;
+  opacity: 0.7;
+}
+
+/* Эффекты ховера карточек стека */
+.skill-card:hover {
+  transform: translateY(-8px);
+  background: rgba(122, 92, 255, 0.06);
+  border-color: rgba(122, 92, 255, 0.4);
+  box-shadow:
+    0 15px 35px rgba(122, 92, 255, 0.15),
+    0 0 15px rgba(122, 92, 255, 0.1);
+}
+
+.skill-card:hover .skill-icon {
+  animation: floatIcon 2s ease-in-out infinite alternate;
+}
+
+/* ==========================================================================
+   4. СЕКЦИЯ: ВЫПОЛНЕННЫЕ РАБОТЫ (PROJECTS) С 3D-РАЗВОРОТОМ
+   ========================================================================== */
+.projects {
+  padding: 100px 0;
+  background-color: #0b0914;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Карточки проектов с эффектом объема */
+.project-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+
+  /* Продвинутое начальное состояние: масштабирование из глубины */
+  opacity: 0;
+  transform: scale(0.85) translateY(40px);
+
+  transition:
+    opacity 0.9s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Появление карточки по сигналу JS */
+.project-card.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Поочередные задержки появления проектов */
+.project-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.project-card:nth-child(2) {
+  transition-delay: 0.3s;
+}
+.project-card:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+/* Зона изображений */
+.project-preview {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background-color: #17142b;
+}
+
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Неоновый оверлей на превью */
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(122, 92, 255, 0.85),
+    rgba(11, 9, 20, 0.4)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-link {
+  color: #110e24;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(25px) scale(0.9);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.project-link:hover {
+  background: #7a5cff;
+  color: #ffffff;
+  transform: translateY(0) scale(1.05);
+  box-shadow: 0 0 20px rgba(122, 92, 255, 0.6);
+}
+
+/* Контентная зона под превью */
+.project-info {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tag {
+  background: rgba(122, 92, 255, 0.12);
+  color: #cdcbfa;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(122, 92, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.project-info h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.project-info p {
+  color: #cdcbfa;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  opacity: 0.75;
+}
+
+/* Ссылки на код */
+.project-buttons {
+  margin-top: auto;
+}
+
+.btn-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #cdcbfa;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-code svg {
+  transition: transform 0.3s ease;
+}
+
+/* Интерактивные ховеры карточки проекта */
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(122, 92, 255, 0.35);
+  box-shadow:
+    0 20px 40px rgba(11, 9, 20, 0.6),
+    0 0 30px rgba(122, 92, 255, 0.15);
+}
+.project-card:hover .project-preview img {
+  transform: scale(1.08);
+}
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+.project-card:hover .project-link {
+  transform: translateY(0) scale(1);
+}
+.project-card:hover .tag {
+  background: rgba(122, 92, 255, 0.25);
+  border-color: rgba(122, 92, 255, 0.5);
+  color: #ffffff;
+}
+.btn-code:hover {
+  color: #ffffff;
+}
+.btn-code:hover svg {
+  transform: rotate(-15deg) scale(1.1);
+  color: #7a5cff;
+}
+.project-preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Наведение на карточку зумит видео, создавая эффект фокуса */
+.project-card:hover .project-preview video {
+  transform: scale(1.06);
+} /* 
+==========================================================================5. ВСПОМОГАТЕЛЬНЫЕ КЛЮЧЕВЫЕ КАДРЫ (ANIMATION KEYFRAMES)========================================================================== */
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 20px rgba(122, 92, 255, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(122, 92, 255, 0.6);
+  }
+}
+@keyframes floatIcon {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(3deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+} /* ==========================================================================6. АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА (MEDIA QUERIES)========================================================================== */
+@media (max-width: 968px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 48px;
+  }
+  .hero-avatar {
+    order: -1;
+  }
+  .hero-photo {
+    width: 240px;
+    height: 240px;
+  }
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-description {
+    font-size: 1.1rem;
+    margin: 0 auto 32px auto;
+  }
+  .hero-btn {
+    margin: 0 10px 16px 10px;
+    padding: 14px 30px;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .skill-card {
+    padding: 30px 20px;
+    max-width: 100%;
+  }
+}
