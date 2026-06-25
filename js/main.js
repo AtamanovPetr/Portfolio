@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Выбираем сразу все анимируемые элементы на странице
-  const animatedItems = document.querySelectorAll(".skill-card, .project-card");
+  // Добавили .contact-card через запятую к остальным классам
+  const animatedItems = document.querySelectorAll(
+    ".skill-card, .project-card, .contact-card",
+  );
 
   const observer = new IntersectionObserver(
     (entries) => {

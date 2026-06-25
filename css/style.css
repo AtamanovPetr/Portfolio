@@ -548,6 +548,121 @@ body {
     transform: translateY(0) rotate(-3deg);
   }
 } /* ==========================================================================6. АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА (MEDIA QUERIES)========================================================================== */
+.contact {
+  padding: 80px 0 30px 0;
+  background-color: #0b0914;
+  position: relative;
+}
+
+/* Центральная стеклянная карточка */
+.contact-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 60px 40px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  /* Скрываем для анимации при скролле */
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Переиспользуем класс visible из JS */
+.contact-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Убираем отступ для заголовка внутри карточки */
+.contact-card .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.contact-card .section-title::after {
+  margin: 10px auto 0 auto;
+}
+
+.contact-description {
+  font-size: 1.15rem;
+  color: #cdcbfa;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  opacity: 0.8;
+  line-height: 1.7;
+}
+
+/* Сетка кнопок */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Базовый стиль кнопок контактов */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+}
+
+/* Стиль кнопки Telegram */
+.btn-telegram {
+  background: #2481cc;
+  box-shadow: 0 4px 15px rgba(36, 129, 204, 0.3);
+}
+
+.btn-telegram:hover {
+  background: #2895e6;
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 25px rgba(36, 129, 204, 0.5),
+    0 0 15px rgba(36, 129, 204, 0.3);
+}
+
+/* Стиль кнопки Email */
+.btn-email {
+  background: #7a5cff;
+  box-shadow: 0 4px 15px rgba(122, 92, 255, 0.3);
+}
+
+.btn-email:hover {
+  background: #6342f0;
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 25px rgba(122, 92, 255, 0.5),
+    0 0 15px rgba(122, 92, 255, 0.3);
+}
+
+.contact-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Нижняя панель (Копирайт) */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 30px;
+  text-align: center;
+  color: #cdcbfa;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
 @media (max-width: 968px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -577,6 +692,150 @@ body {
     max-width: 500px;
   }
 }
+/* ==========================================================================
+   12. СЕКЦИЯ КОНТАКТОВ И ПОДВАЛ (CONTACT & FOOTER)
+   ========================================================================== */
+.contact {
+  padding: 80px 0 30px 0;
+  background-color: #0b0914;
+  position: relative;
+}
+
+/* Центральная стеклянная карточка */
+.contact-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 60px 40px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  /* Скрываем для анимации при скролле */
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Переиспользуем класс visible из JS */
+.contact-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Убираем отступ для заголовка внутри карточки */
+.contact-card .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.contact-card .section-title::after {
+  margin: 10px auto 0 auto;
+}
+
+.contact-description {
+  font-size: 1.15rem;
+  color: #cdcbfa;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  opacity: 0.8;
+  line-height: 1.7;
+}
+
+/* Сетка кнопок */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Базовый стиль кнопок контактов */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+}
+
+/* Стиль кнопки Telegram */
+.btn-telegram {
+  background: #2481cc;
+  box-shadow: 0 4px 15px rgba(36, 129, 204, 0.3);
+}
+
+.btn-telegram:hover {
+  background: #2895e6;
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 25px rgba(36, 129, 204, 0.5),
+    0 0 15px rgba(36, 129, 204, 0.3);
+}
+
+/* Стиль кнопки Email */
+.btn-email {
+  background: #7a5cff;
+  box-shadow: 0 4px 15px rgba(122, 92, 255, 0.3);
+}
+
+.btn-email:hover {
+  background: #6342f0;
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 25px rgba(122, 92, 255, 0.5),
+    0 0 15px rgba(122, 92, 255, 0.3);
+}
+
+.contact-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Нижняя панель (Копирайт) */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 30px;
+  color: #cdcbfa;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 40px 20px;
+  }
+
+  .contact-card .section-title {
+    font-size: 2rem;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
 @media (max-width: 576px) {
   .section-title {
     font-size: 2.2rem;
