@@ -553,6 +553,8 @@ body {
   padding: 80px 0 30px 0;
   background-color: #0b0914;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Центральная стеклянная карточка */
@@ -566,6 +568,7 @@ body {
   max-width: 800px;
   margin: 0 auto 60px auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
 
   /* Скрываем для анимации при скролле */
   opacity: 0;
@@ -605,6 +608,7 @@ body {
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 /* Базовый стиль кнопок контактов */
@@ -620,9 +624,14 @@ body {
   color: #ffffff;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: relative;
+  box-sizing: border-box;
 }
 
-/* Стиль кнопки Telegram */
+.contact-btn:active {
+  transform: translateY(-1px);
+}
+
+/* 1. Стиль кнопки Telegram */
 .btn-telegram {
   background: #2481cc;
   box-shadow: 0 4px 15px rgba(36, 129, 204, 0.3);
@@ -636,7 +645,49 @@ body {
     0 0 15px rgba(36, 129, 204, 0.3);
 }
 
-/* Стиль кнопки Email */
+/* 2. НОВЫЙ: Стиль кнопки WhatsApp (Зеленый неон) */
+.btn-whatsapp {
+  background: #25d366;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: #2bd96f;
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 25px rgba(37, 211, 102, 0.5),
+    0 0 15px rgba(37, 211, 102, 0.3);
+}
+
+/* 3. НОВЫЙ: Стиль кнопки ВКонтакте (Яркий синий) */
+.btn-vk {
+  background: #0077ff;
+  box-shadow: 0 4px 15px rgba(0, 119, 255, 0.3);
+}
+
+.btn-vk:hover {
+  background: #1a85ff;
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 25px rgba(0, 119, 255, 0.5),
+    0 0 15px rgba(0, 119, 255, 0.3);
+}
+
+/* 4. НОВЫЙ: Стиль кнопки MAX (Кинематографичный малиновый неон) */
+.btn-max {
+  background: #ff007f;
+  box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
+}
+
+.btn-max:hover {
+  background: #ff1a8c;
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 25px rgba(255, 0, 127, 0.5),
+    0 0 15px rgba(255, 0, 127, 0.3);
+}
+
+/* 5. Стиль кнопки Email */
 .btn-email {
   background: #7a5cff;
   box-shadow: 0 4px 15px rgba(122, 92, 255, 0.3);
@@ -650,10 +701,6 @@ body {
     0 0 15px rgba(122, 92, 255, 0.3);
 }
 
-.contact-btn:active {
-  transform: translateY(-1px);
-}
-
 /* Нижняя панель (Копирайт) */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -662,6 +709,7 @@ body {
   color: #cdcbfa;
   font-size: 0.9rem;
   opacity: 0.6;
+  width: 100%;
 }
 
 @media (max-width: 968px) {
