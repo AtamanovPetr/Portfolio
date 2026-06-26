@@ -306,7 +306,8 @@ body {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  justify-content: center; /* Теперь это сработает */
+  grid-template-columns: repeat(auto-fill, 360px); /* Заменили auto-fit и 1fr */
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
