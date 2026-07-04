@@ -894,3 +894,29 @@ body {
     max-width: 100%;
   }
 }
+
+/* Изящный стиль для последней нечетной карточки */
+.projects-grid .project-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Делаем область видео чуть шире текста */
+  gap: 30px; /* Увеличиваем отступ между видео и текстом */
+  align-items: center; /* Центрируем контент по вертикали */
+  padding: 24px; /* Внутренний отступ, чтобы контент не лип к границам карточки */
+}
+
+/* Сбрасываем внутренний padding у блоков, если они ломают сетку */
+.projects-grid .project-card:last-child:nth-child(odd) .project-preview,
+.projects-grid .project-card:last-child:nth-child(odd) .project-info {
+  padding: 0;
+  margin: 0;
+}
+
+/* Фикс для адаптивности под мобильные экраны */
+@media (max-width: 868px) {
+  .projects-grid .project-card:last-child:nth-child(odd) {
+    grid-template-columns: 1fr; /* На планшетах и телефонах возвращаем в одну колонку */
+    gap: 20px;
+    padding: 0; /* Возвращаем стандартные отступы ваших карточек */
+  }
+}
