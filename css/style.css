@@ -360,6 +360,11 @@ body {
   background-color: #17142b;
 }
 
+.project-preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .project-preview img {
   width: 100%;
   height: 100%;
@@ -919,4 +924,215 @@ body {
     gap: 20px;
     padding: 0; /* Возвращаем стандартные отступы ваших карточек */
   }
+}
+
+/* 3D-карусель */
+.carousel-3d-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-3d {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1600px; /* Увеличено для более мягкого и глубокого 3D-эффекта */
+  transform-style: preserve-3d;
+  min-height: 450px; /* подстрой под высоту твоих карточек */
+  position: relative;
+  width: 100%;
+}
+
+.project-card {
+  position: absolute;
+  width: 350px;
+  opacity: 0.4;
+  transform: scale(0.8);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  /* ХАРДКОРНАЯ ПЛАВНОСТЬ: Кастомная кривая Безье (плавный разгон, мягкое скольжение в конце) */
+  transition:
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Оптимизация для GPU: заставляет видеокарту рендерить анимацию отдельно от основного потока */
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden; /* Убирает микро-мерцание задней стороны при повороте */
+
+  /* Устранение размытия шрифтов при трансформациях scale() и rotateY() */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 650px; /* одинаковая высота для всех карточек */
+  overflow-y: auto; /* прокрутка, если текст не влезает */
+}
+
+.project-card.active {
+  opacity: 1;
+  transform: scale(1) translateZ(0px);
+  z-index: 2;
+}
+
+.project-card.prev {
+  transform: translateX(-60%) scale(0.8) rotateY(25deg);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.project-card.next {
+  transform: translateX(60%) scale(0.8) rotateY(-25deg);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.project-card.hidden-left {
+  transform: translateX(-100%) scale(0.7) rotateY(40deg);
+  opacity: 0.3;
+}
+
+.project-card.hidden-right {
+  transform: translateX(100%) scale(0.7) rotateY(-40deg);
+  opacity: 0.3;
+}
+
+/* стрелки */
+.carousel-btn {
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a3f47;
+}
+
+.carousel-btn:hover {
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Планшеты */
+@media (max-width: 768px) {
+  .carousel-3d-wrapper {
+    padding: 100px 0 60px 0; /* Увеличиваем верхний отступ, чтобы открыть заголовок */
+  }
+  .carousel-3d {
+    height: 520px; /* Увеличиваем высоту под пропорции карточек */
+  }
+  .project-card {
+    width: 320px; /* Делаем карточку шире для читаемости текста */
+  }
+  .project-card.prev {
+    transform: translateX(-35%) scale(0.85) translateZ(-100px) rotateY(15deg);
+  }
+  .project-card.next {
+    transform: translateX(35%) scale(0.85) translateZ(-100px) rotateY(-15deg);
+  }
+  .project-card.hidden-left,
+  .project-card.hidden-right {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Телефоны */
+@media (max-width: 480px) {
+  .carousel-3d-wrapper {
+    padding: 120px 0 80px 0; /* Отступ сверху, чтобы заголовок секции не перекрывался */
+  }
+  .carousel-3d {
+    height: 580px; /* Достаточная высота, чтобы текст и теги снизу не вылезали за границы */
+  }
+  .project-card {
+    width: 290px; /* Максимально возможная ширина для мобильных (оставляет по ~35px по бокам экрана) */
+  }
+
+  /* Делаем боковые карточки сильнее утопленными назад, чтобы они не перекрывали центральную */
+  .project-card.prev {
+    transform: translateX(-20%) scale(0.8) translateZ(-150px) rotateY(10deg);
+    opacity: 0.3;
+  }
+  .project-card.next {
+    transform: translateX(20%) scale(0.8) translateZ(-150px) rotateY(-10deg);
+    opacity: 0.3;
+  }
+
+  .project-card.hidden-left,
+  .project-card.hidden-right {
+    display: none;
+  }
+
+  /* Стрелки управления */
+  .carousel-btn {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    bottom: -60px; /* Смещаем ниже под контент карточки */
+    z-index: 20;
+  }
+  .carousel-btn:first-of-type {
+    left: 25%;
+  }
+  .carousel-btn:last-of-type {
+    right: 25%;
+  }
+}
+
+.page-dots {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  gap: 10px;
+}
+
+/* Десктоп: вертикально слева */
+@media (min-width: 769px) {
+  .page-dots {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+  }
+}
+
+/* Планшеты и телефоны: горизонтально снизу */
+@media (max-width: 768px) {
+  .page-dots {
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.page-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff; /* белая основа */
+  border: 2px solid #8b6e7a; /* тёмная обводка для контраста */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* тень для объёма */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.page-dot.active {
+  background: #b07a8c; /* твой акцентный розовый */
+  border-color: #b07a8c;
+  box-shadow: 0 0 0 4px rgba(176, 122, 140, 0.4);
 }

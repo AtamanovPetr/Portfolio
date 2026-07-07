@@ -27,7 +27,8 @@
     <meta property="og:type" content="website" />
   </head>
   <body>
-    <section class="hero">
+    <nav class="page-dots" id="pageDots"></nav>
+    <section class="hero" id="hero">
       <div class="container">
         <div class="hero-content">
           <div class="hero-avatar">
@@ -204,279 +205,306 @@
     <section class="projects" id="projects">
       <div class="container">
         <h2 class="section-title">Выполненные работы</h2>
-        <div class="projects-grid">
-          <!-- Карточка 1: SegWay Landing Page -->
-          <div class="project-card">
-            <div class="project-preview">
-              <video autoplay loop muted playsinline poster="img/project2.jpg">
-                <source src="video/project2.webm" type="video/webm" />
-                <source src="video/project2.mp4" type="video/mp4" />
-              </video>
-              <div class="project-overlay">
-                <a
-                  href="https://atamanovpetr.github.io/SegWay/"
-                  class="project-link"
-                  target="_blank"
-                  >Смотреть Live Demo</a
-                >
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="tag">HTML5 / CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Pixel Perfect</span>
-              </div>
-              <h3>SegWay Landing Page</h3>
-              <p>
-                Продающий одностраничный сайт электросамокатов SegWay. Чистая
-                адаптивная верстка по Figma-макету, интерактивные слайдеры,
-                кастомные формы и плавная прокрутка.
-              </p>
-              <div class="project-buttons">
-                <a
-                  href="https://github.com/AtamanovPetr/SegWay"
-                  class="btn-code"
-                  target="_blank"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
-                    />
-                  </svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
 
-          <!-- Карточка 2: Beauty Salon (сайт-визитка) -->
-          <div class="project-card">
-            <div class="project-preview">
-              <video
-                autoplay
-                loop
-                muted
-                playsinline
-                poster="img/project-salon.jpg"
-              >
-                <source src="video/project.webm" type="video/webm" />
-                <source src="video/project.mp4" type="video/mp4" />
-              </video>
-              <div class="project-overlay">
-                <a
-                  href="https://atamanovpetr.github.io/BeautyLanding/"
-                  class="project-link"
-                  target="_blank"
-                  >Смотреть Live Demo</a
-                >
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="tag">HTML5 / CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Pixel Perfect</span>
-              </div>
-              <h3>Beauty Salon — Сайт-визитка</h3>
-              <p>
-                Сайт-визитка для салона красоты с услугами, ценами и кнопкой для
-                быстрой записи в WhatsApp. Чистая верстка, точное попадание в
-                макет Figma.
-              </p>
-              <div class="project-buttons">
-                <a
-                  href="https://github.com/AtamanovPetr/BeautyLanding"
-                  class="btn-code"
-                  target="_blank"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    fill="currentColor"
+        <!-- 3D-карусель -->
+        <div class="carousel-3d-wrapper">
+          <button class="carousel-btn prev" id="prevBtn">❮</button>
+          <div class="carousel-3d" id="carousel">
+            <!-- Все твои карточки project-card без изменений, только обёрнуты -->
+            <div class="project-card">
+              <div class="project-preview">
+                <video autoplay loop muted playsinline>
+                  <source src="video/project2.mp4" type="video/mp4" />
+                </video>
+                <div class="project-overlay">
+                  <a
+                    href="https://atamanovpetr.github.io/SegWay/"
+                    class="project-link"
+                    target="_blank"
+                    >Смотреть Live Demo</a
                   >
-                    <path
-                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
-                    />
-                  </svg>
-                  GitHub
-                </a>
+                </div>
+              </div>
+              <div class="project-info">
+                <div class="project-tags">
+                  <span class="tag">HTML5 / CSS3</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Pixel Perfect</span>
+                </div>
+                <h3>SegWay Landing Page</h3>
+                <p>
+                  Продающий одностраничный сайт электросамокатов SegWay. Чистая
+                  адаптивная верстка по Figma-макету, интерактивные слайдеры,
+                  кастомные формы и плавная прокрутка.
+                </p>
+                <div class="project-buttons">
+                  <a
+                    href="https://github.com/AtamanovPetr/SegWay"
+                    class="btn-code"
+                    target="_blank"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Карточка 3: Aliance Corporate Website -->
-          <div class="project-card">
-            <div class="project-preview">
-              <video autoplay loop muted playsinline poster="img/project3.jpg">
-                <source src="video/project3.webm" type="video/webm" />
-                <source src="video/project3.mp4" type="video/mp4" />
-              </video>
-              <div class="project-overlay">
-                <a
-                  href="http://aliance-atamanov.ru.swtest.ru/"
-                  class="project-link"
-                  target="_blank"
-                  >Смотреть Live Demo</a
-                >
+            <!-- Карточка 2: Beauty Salon (сайт-визитка) -->
+            <div class="project-card">
+              <div class="project-preview">
+                <video autoplay loop muted playsinline>
+                  <source src="video/project.mp4" type="video/mp4" />
+                </video>
+                <div class="project-overlay">
+                  <a
+                    href="https://atamanovpetr.github.io/BeautyLanding/"
+                    class="project-link"
+                    target="_blank"
+                    >Смотреть Live Demo</a
+                  >
+                </div>
+              </div>
+              <div class="project-info">
+                <div class="project-tags">
+                  <span class="tag">HTML5 / CSS3</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Pixel Perfect</span>
+                </div>
+                <h3>Beauty Salon — Сайт-визитка</h3>
+                <p>
+                  Сайт-визитка для салона красоты с услугами, ценами и кнопкой
+                  для быстрой записи в WhatsApp. Чистая верстка, точное
+                  попадание в макет Figma.
+                </p>
+                <div class="project-buttons">
+                  <a
+                    href="https://github.com/AtamanovPetr/BeautyLanding"
+                    class="btn-code"
+                    target="_blank"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="tag">HTML5 / CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Multi-page</span>
-              </div>
-              <h3>Aliance Corporate Website</h3>
-              <p>
-                Корпоративный многостраничный сайт с адаптивной версткой.
-                Оптимизированная структура, семантическая разметка,
-                переиспользуемые блоки стилей.
-              </p>
-              <div class="project-buttons">
-                <a
-                  href="https://github.com/AtamanovPetr/Aliance"
-                  class="btn-code"
-                  target="_blank"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    fill="currentColor"
+
+            <!-- Карточка 3: Aliance Corporate Website -->
+            <div class="project-card">
+              <div class="project-preview">
+                <video autoplay loop muted playsinline>
+                  <source src="video/project3.mp4" type="video/mp4" />
+                </video>
+                <div class="project-overlay">
+                  <a
+                    href="http://aliance-atamanov.ru.swtest.ru/"
+                    class="project-link"
+                    target="_blank"
+                    >Смотреть Live Demo</a
                   >
-                    <path
-                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
-                    />
-                  </svg>
-                  GitHub
-                </a>
+                </div>
+              </div>
+              <div class="project-info">
+                <div class="project-tags">
+                  <span class="tag">HTML5 / CSS3</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Multi-page</span>
+                </div>
+                <h3>Aliance Corporate Website</h3>
+                <p>
+                  Корпоративный многостраничный сайт с адаптивной версткой.
+                  Оптимизированная структура, семантическая разметка,
+                  переиспользуемые блоки стилей.
+                </p>
+                <div class="project-buttons">
+                  <a
+                    href="https://github.com/AtamanovPetr/Aliance"
+                    class="btn-code"
+                    target="_blank"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Карточка проекта: BLACK WOOD Barbershop -->
+            <div class="project-card">
+              <div class="project-preview">
+                <video autoplay loop muted playsinline>
+                  <source src="video/project4.mp4" type="video/mp4" />
+                </video>
+                <div class="project-overlay">
+                  <a
+                    href="https://atamanovpetr.github.io/Barber/"
+                    class="project-link"
+                    target="_blank"
+                    >Смотреть Live Demo</a
+                  >
+                </div>
+              </div>
+              <div class="project-info">
+                <div class="project-tags">
+                  <span class="tag">HTML5 / CSS3 Grid</span>
+                  <span class="tag">Scroll Snap</span>
+                  <span class="tag">Scroll Reveal</span>
+                </div>
+                <h3>BLACK WOOD — Премиальный Барбершоп</h3>
+                <p>
+                  Высокотехнологичный сайт-визитка в темных тонах с золотыми
+                  акцентами. Кинематографичный видео-фон, встроенная векторная
+                  графика, адаптивные слайдеры на Scroll Snap, автоплей отзывов
+                  и интерактивная карта. Высокие баллы в Google Lighthouse.
+                </p>
+                <div class="project-buttons">
+                  <a
+                    href="https://github.com/AtamanovPetr/Barber"
+                    class="btn-code"
+                    target="_blank"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Карточка проекта: Todo List (Next.js + Firebase + Supabase) -->
+            <div class="project-card">
+              <div class="project-preview">
+                <video autoplay loop muted playsinline>
+                  <source src="video/project5.mp4" type="video/mp4" />
+                </video>
+                <div class="project-overlay">
+                  <a
+                    href="https://todo-list-next-flax.vercel.app/"
+                    class="project-link"
+                    target="_blank"
+                    >Смотреть Live Demo</a
+                  >
+                </div>
+              </div>
+              <div class="project-info">
+                <div class="project-tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">Firebase Auth</span>
+                  <span class="tag">Supabase DB</span>
+                </div>
+                <h3>Next.js Todo App</h3>
+                <p>
+                  Функциональный менеджер задач на Next.js. Реализована
+                  безопасная Google-авторизация через Firebase Auth, а также
+                  полноценный CRUD для задач с мгновенной синхронизацией и
+                  хранением данных в облачной базе данных Supabase (PostgreSQL).
+                </p>
+                <div class="project-buttons">
+                  <a
+                    href="https://github.com/AtamanovPetr/todo-list-next"
+                    class="btn-code"
+                    target="_blank"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Карточка проекта: Beauty Constructor (Fullstack-конструктор сайтов-визиток) -->
+            <div class="project-card">
+              <div class="project-preview">
+                <video autoplay loop muted playsinline>
+                  <source src="video/project6.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="project-info">
+                <div class="project-tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Prisma ORM</span>
+                  <span class="tag">Firebase Auth</span>
+                </div>
+                <h3>
+                  Beauty Constructor – Fullstack-конструктор сайтов-визиток
+                </h3>
+                <p>
+                  Полноценное SaaS-приложение с админкой, карточками услуг,
+                  загрузкой фото и автосохранением. Реализована генерация
+                  статических страниц, управление контентом и публикация сайтов.
+                  Стек: Next.js 14, TypeScript, Prisma, SQLite, Firebase Auth.
+                </p>
+                <div class="project-buttons">
+                  <a
+                    href="https://github.com/AtamanovPetr/beauty-constructor"
+                    class="btn-code"
+                    target="_blank"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <!-- Карточка проекта: BLACK WOOD Barbershop -->
-          <div class="project-card">
-            <div class="project-preview">
-              <video
-                autoplay
-                loop
-                muted
-                playsinline
-                poster="img/project-barber.jpg"
-              >
-                <source src="video/project-barber.webm" type="video/webm" />
-                <source src="video/project4.mp4" type="video/mp4" />
-              </video>
-              <div class="project-overlay">
-                <a
-                  href="https://atamanovpetr.github.io/Barber/"
-                  class="project-link"
-                  target="_blank"
-                  >Смотреть Live Demo</a
-                >
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="tag">HTML5 / CSS3 Grid</span>
-                <span class="tag">Scroll Snap</span>
-                <span class="tag">Scroll Reveal</span>
-              </div>
-              <h3>BLACK WOOD — Премиальный Барбершоп</h3>
-              <p>
-                Высокотехнологичный сайт-визитка в темных тонах с золотыми
-                акцентами. Кинематографичный видео-фон, встроенная векторная
-                графика, адаптивные слайдеры на Scroll Snap, автоплей отзывов и
-                интерактивная карта. Высокие баллы в Google Lighthouse.
-              </p>
-              <div class="project-buttons">
-                <a
-                  href="https://github.com/AtamanovPetr/Barber"
-                  class="btn-code"
-                  target="_blank"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
-                    />
-                  </svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- Карточка проекта: Todo List (Next.js + Firebase + Supabase) -->
-          <div class="project-card">
-            <div class="project-preview">
-              <video
-                autoplay
-                loop
-                muted
-                playsinline
-                poster="img/project-todo.jpg"
-              >
-                <source src="video/project-todo.webm" type="video/webm" />
-                <source src="video/project5.mp4" type="video/mp4" />
-              </video>
-              <div class="project-overlay">
-                <a
-                  href="https://todo-list-next-flax.vercel.app/"
-                  class="project-link"
-                  target="_blank"
-                  >Смотреть Live Demo</a
-                >
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-tags">
-                <span class="tag">Next.js</span>
-                <span class="tag">Firebase Auth</span>
-                <span class="tag">Supabase DB</span>
-              </div>
-              <h3>Next.js Todo App</h3>
-              <p>
-                Функциональный менеджер задач на Next.js. Реализована безопасная
-                Google-авторизация через Firebase Auth, а также полноценный CRUD
-                для задач с мгновенной синхронизацией и хранением данных в
-                облачной базе данных Supabase (PostgreSQL).
-              </p>
-              <div class="project-buttons">
-                <a
-                  href="https://github.com/AtamanovPetr/todo-list-next"
-                  class="btn-code"
-                  target="_blank"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="18"
-                    height="18"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
-                    />
-                  </svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
+          <button class="carousel-btn next" id="nextBtn">❯</button>
         </div>
       </div>
     </section>
 
-    <footer class="contact" id="contact">
+    <section class="contact" id="contact">
       <div class="container">
         <div class="contact-card">
           <h2 class="section-title">Давайте сотрудничать!</h2>
@@ -598,8 +626,44 @@
           <p>&copy; 2026 Петр. All rights reserved.</p>
         </div>
       </div>
-    </footer>
+    </section>
 
     <script src="./js/main.js"></script>
+    <script>
+      (function () {
+        const sections = document.querySelectorAll("section[id]");
+        const dotsContainer = document.getElementById("pageDots");
+        const dots = [];
+
+        // Создаём точку для каждой секции
+        sections.forEach((section, i) => {
+          const dot = document.createElement("button");
+          dot.className = "page-dot";
+          dot.setAttribute("aria-label", section.id);
+          dot.addEventListener("click", () => {
+            section.scrollIntoView({ behavior: "smooth" });
+          });
+          dotsContainer.appendChild(dot);
+          dots.push({ dot, section });
+        });
+
+        // Отслеживаем активную секцию при скролле
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.id;
+                dots.forEach(({ dot, section }) => {
+                  dot.classList.toggle("active", section.id === id);
+                });
+              }
+            });
+          },
+          { threshold: 0.3 },
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      })();
+    </script>
   </body>
 </html>
