@@ -1138,3 +1138,13 @@ body {
   border-color: #b07a8c;
   box-shadow: 0 0 0 4px rgba(176, 122, 140, 0.4);
 }
+
+.project-card::-webkit-scrollbar {
+  display: none;
+}
+
+/* Для Firefox и Internet Explorer/Edge */
+.project-card {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
