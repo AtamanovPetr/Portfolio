@@ -355,9 +355,11 @@ body {
 .project-preview {
   position: relative;
   width: 100%;
-  height: 230px;
+  height: auto; /* убираем фиксированную высоту */
+  aspect-ratio: 16 / 9; /* задаём пропорции видео – адаптивно */
   overflow: hidden;
-  background-color: #17142b;
+  background-color: #17142b; /* твой цвет остаётся */
+  flex-shrink: 0;
 }
 
 .project-preview video {
@@ -365,13 +367,13 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
 .project-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-
 /* Неоновый оверлей на превью */
 .project-overlay {
   position: absolute;
@@ -1128,7 +1130,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 .page-dot.active {
